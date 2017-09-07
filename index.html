@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Come Drive With Me</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/tooltipster.bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="style/tooltipster-sideTip-shadow.min.css">
+</head>
+<body>
+    <div id="map"></div>
+    <div id="contentContainer">
+        <div id="validationBox">
+            <div class="logo">
+                <img src="images/logo-sign.png" alt="come-drive-with-me-logo" id="logoImage">
+                <div id="numbersInfo">
+                    <div id="infoAmount"></div>
+                    <div id="infoDrivers"></div>
+                </div>
+                <div class="figures">
+                    <div class="figuresAmount"></div>
+                    <div class="figuresDrivers"></div>
+                </div>
+                <div class="cart">
+                    <div class="cartHide">Cart:</div>
+                    <div class="motorbike"></div>
+                    <div class="sCar"></div>
+                    <div class="lCar"></div>
+                    <div class="motorHome"></div>
+                </div>
+            </div>
+            <div id="startEnd">
+                <div>
+                    <p id="start">Start Date:</p>
+                    <p id="end">End Date:</p>
+                </div>
+                <div>
+                    <div class="startDate">
+                        <input type="text" id="dateStart" name="start-date" class="dates">
+                    </div>
+                    <div class="endDate">
+                        <input type="text" id="dateEnd" name="end-date" class="dates">
+                    </div>
+                    <div class="dateDiff"></div>
+                    <br>
+                    <div class="allErrors">
+                        <span class="errors datesNull">Please enter your dates.</span>
+                        <span class="errors insufficient">The end date cannot be before the start date.</span>
+                        <span class="errors tooEarly">Tomorrows date is the earliest booking you can make.</span>
+                        <span class="errors motorbikeError">5 days is the maximum amount of time a motorbike can be rented.</span>
+                        <span class="errors weekend">On a weekend a small car must be rented at least 2 days.</span>
+                        <span class="errors carLate">10 days is the maximum amount of time a car can be rented.</span>
+                        <span class="errors carEarly">3 days is the minimum amount of time a large car can be rented.</span>
+                        <span class="errors motorHomeEarly">2 days is the minimum amount of time a motor home can be rented.</span>
+                        <span class="errors maxAll">The max amount of time any vehicle can be rented is 15 days</span>
+                        <span class="errors noBikes">A motorbike can't be selected with the information given.</span>
+                        <span class="errors nosCar">A 2-seater can't be selected with the information given.</span>
+                        <span class="errors nolCar">A 5-seater can't be selected with the information given.</span>
+                        <span class="errors noMotorhome">A six seater is invalid.</span>
+                    </div>
+                </div>
+                <div class="info">
+                    How many people are on this trip?
+                    <br>
+                    <input type="text" name="amount" placeholder="Enter a number" id="amount">
+                    <span class="errors nanAmount">You must input a number.</span>
+                    <span class="errors exceedA">There cannot be more drivers than people.</span>
+                    <span class="errors tooMany">There can be no more than 12 people per booking.</span>
+                    <br>
+                    How many people can drive?
+                    <br>
+                    <input type="text" name="drivers" placeholder="Enter a number" id="drivers">
+                    <span class="errors nanDrivers">You must input a number.</span>
+                    <span class="errors exceedD">There cannot be more drivers than people.</span>
+                </div>
+                <div class="submitButton">
+                    <button type="submit" id="check">Check availability</button>
+                    <button type="submit" id="submit" onclick="infoValidated();">Sumbit</button>
+                    <span class="success transport bottomSpan">And now to select your transport.</span>
+                    <span class="errors noMatches">We have no matches.</span>
+                    <span class="errors infoNull">Please enter your drivers/passengers.</span>
+                </div>
+                <div class="svg">
+                    <img src="images/svg/motorbike.svg" class="svgImage" alt="motorbike" id="motorbike">
+                    <img src="images/svg/small-car.svg" class="svgImage" alt="small-car" id="small-car">
+                    <img src="images/svg/large-car.svg" class="svgImage" alt="large-car" id="large-car">
+                    <img src="images/svg/motorhome.svg" class="svgImage" alt="motorhome" id="motorhome">
+                    <p class="svgTextOne">1 seater</p>
+                    <p class="svgTextTwo">1-2 seater</p>
+                    <p class="svgTextThree">1-5 seater</p>
+                    <p class="svgTextFour">2-6 seater</p>
+                </div>
+                <div>
+                    <img src="images/svg/icon.svg" class="svgEnd infoToolTip" title="Motorbike:1-5 days; Small car:2-10 days; Large car:3-10 days; Motorhome:2-15 days;" alt="info-box" id="extraInfo">
+                </div>
+            </div>
+        </div>
+        <div id="stageTwo">
+            <div id="buttons">
+                <button id="walking" onclick="changeTransport(this.id)">Walking</button>
+                <button id="bicycling" onclick="changeTransport(this.id)">Cycling</button>
+                <button id="driving" onclick="changeTransport(this.id)">Driving</button>
+                <button id="transit" onclick="changeTransport(this.id)">Transit</button>
+            </div>
+            <div class="findPickup">
+                Pickup Location: <br>
+                <div class="pickup">
+                    <p></p>
+                    <input id="pick" type="button" value="Pick this" onclick="pickThisLocation();">
+                </div>
+            </div>
+            <div class="findPickup">
+                Other: <br>
+                <div class="pickup">
+                    <select id="pickupOptions" onchange="changeSelect()">
+                        <option value="wellington-airport">Wellington Airport</option>
+                        <option value="wellington-central">Wellington Central</option>
+                        <option value="masterton-central">Masterton Central</option>
+                        <option value="palmerston-north-central">Palmerston North Central</option>
+                        <option value="palmerston-north-airport">Palmerston North Airport</option>
+                        <option value="ohakune-central">Ohakune Central</option>
+                        <option value="whangarei-central">Whangarei Central</option>
+                        <option value="hastings-central">Hastings Central</option>
+                        <option value="new-plymouth-central">New Plymouth Central</option>
+                        <option value="tauranga-central">Tauranga Central</option>
+                        <option value="gisborne-airport">Gisborne Airport</option>
+                        <option value="taupo-central">Taupo Central</option>
+                        <option value="hamilton-central">Hamilton Central</option>
+                        <option value="auckland-central">Auckland Central</option>
+                        <option value="auckland-airport">Auckland Airport</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <input class="back" type="button" value="Go back" onclick="goBack1()">
+            </div>
+        </div>
+        <div id="stageThree">
+            <div id="inputOD">
+                <input type="text" name="origin" id="origin" value="" class="chooseOD">
+                <img src="images/svg/plus.svg" class="svgEnd addPath" alt="plus">
+                <br>
+                <div data-autocomplete="0">
+                    <input type="text" name="destination" class="waypoint chooseOD" value="" placeholder="Destination">
+                    <img src="images/svg/error.svg" class="svgEnd deletePath" alt="cross">
+                </div>
+            </div>
+            <div class="finalCart">
+                <div class="priceBike"></div>
+                <div class="priceSCar"></div>
+                <div class="priceLCar"></div>
+                <div class="priceHome"></div>
+                <div>* L per 100km</div>
+            </div>
+            <div class="onDestination">
+                <div id="underline">Current Petrol Price: $1.859/L</div>
+                <div class="cartList">
+                    <div id="days"></div>
+                    <div id="km"></div>
+                    <div id="fuel"></div>
+                    <div id="vehicles"></div>
+                    <div id="total"></div>
+                </div>
+            </div>
+            <div>
+                <input class="back" type="button" value="Go back" onclick="goBack2();">
+                <button type="submit" id="submitEnd" onclick="final()">Sumbit</button>
+                <button type="submit" id="checkEnd" onclick="showSubmitButton()">Check availability</button>
+                <span class="errors selectDest">Please select a destination.</span>
+                <span class="success finalised">Information saved. Come in store to complete transaction.</span>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBC0-Ry1_LbyXCnuoncXs0vBU2YVp-LSsQ&libraries=geometry,places" type="text/javascript"></script>
+    <script type="text/javascript" src="script/tooltipster.bundle.min.js"></script>
+    <script type="text/javascript" src="script/validation.js"></script>
+</body>
+</html>

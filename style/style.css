@@ -1,0 +1,365 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#validationBox{
+    position: absolute;
+    margin: 35%;
+    margin-top: 120px;
+    width: 500px;
+    height: 515px;
+    background-color: rgba(254, 249, 255, 0.75);
+}
+
+.logo{
+    display: inline-block;
+}
+
+#logoImage{
+    width: 140px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.dates{
+    padding: 5px;
+    font-size: 0.9em;
+}
+
+.startDate{
+    display: inline-block;
+}
+
+.endDate{
+    display: inline-block;
+}
+
+p{
+    display: inline-block;
+}
+
+#startEnd{
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+#end{
+    margin-left: 95px;
+}
+
+.dateDiff{
+    display: inline-block;
+    color: green;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.info{
+    padding: 5px;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.info > * {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#check{
+    background-color: gainsboro;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    right: 0;
+}
+
+#submit{
+    background-color: #54be52;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+
+.submitButton{
+    height: 40px;
+}
+
+.errors{
+    display: none;
+    color: red;
+}
+
+.success{
+    display: none;
+    color: green;
+    margin-left: 5px;
+}
+
+.allErrors{
+    height: 15px;
+}
+
+.svg{
+    height: 135px;
+}
+
+.svgImage{
+    display: inline-block;
+    width: 85px;
+    margin: 0 15px 0 15px;
+    opacity: 0.8;
+}
+
+.svgTextOne{
+    margin-left: 25px;
+}
+
+.svgTextTwo{
+    margin-left: 55px;
+}
+
+.svgTextThree{
+    margin-left: 45px;
+}
+
+.svgTextFour{
+    margin-left: 45px;
+}
+
+.opacity{
+    opacity: 0.5;
+}
+
+#numbersInfo{
+    display: inline-block;
+    font-size: 1.3em;
+    margin-left: 3px;
+}
+
+#infoDrivers{
+    position: relative;
+    top: -15px;
+}
+
+#infoAmount{
+    position: relative;
+    top: -25px;
+}
+
+.figure{
+    width: 14px;
+    display: inline-block;
+}
+
+.figures{
+    display: inline-block;
+}
+
+.figuresAmount{
+    position: relative;
+    top: -27px;
+    margin-left: 5px;
+}
+
+.figuresDrivers{
+    position: relative;
+    top: -13px;
+    margin-left: 5px;
+}
+
+.cart{
+    display: inline-block;
+    position: relative;
+    right: -14px;
+    top: -12px;
+}
+
+.cartHide{
+    display: none;
+}
+
+.x{
+    width: 10px;
+    display: inline-block;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.x:hover{
+    width: 12px;
+    opacity: 0.8;
+}
+
+.amountInCart{
+    display: inline-block;
+}
+
+/*second page*/
+
+#stageTwo{
+    padding: 5px;
+    position: absolute;
+    display: none;
+    margin: 10px;
+    background-color: rgba(254, 249, 255, 0.75);
+}
+
+#stageThree{
+    padding: 5px;
+    position: absolute;
+    display: none;
+    margin: 10px;
+    width: 310px;
+    margin-left: 70%;
+    background-color: rgba(254, 249, 255, 0.75);
+}
+
+button{
+    font-size: 13px;
+    padding: 5px;
+    border: gainsboro 1px solid;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #cccccc;
+}
+
+#buttons{
+    margin-top: 5px;
+}
+
+.findPickup{
+    padding: 10px;
+}
+
+#pick{
+    width: 70px;
+    height: 30px;
+    font-size: 0.9em;
+    background-color: whitesmoke;
+    border: #000000 1px solid;
+    margin-left: 25px;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+.back{
+    width: 70px;
+    height: 30px;
+    display: inline-block;
+    font-size: 0.9em;
+    background-color: whitesmoke;
+    border: #000000 1px solid;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.back:hover{
+    background-color: gainsboro;
+}
+
+#pick:hover{
+    background-color: gainsboro;
+}
+
+.pickup{
+    padding-top: 10px;
+}
+
+#pickupOptions{
+    padding: 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.chooseOD{
+    padding: 10px;
+    font-size: 1.1em;
+    width: 240px;
+}
+
+.svgEnd{
+    width: 25px;
+    margin-left: 5px;
+}
+
+.svgEnd:hover{
+    border-radius: 10px;
+    background-color: #cccccc;
+}
+
+.finalCart{
+    margin: 10px;
+    padding: 12px;
+    border: 1px solid;
+}
+
+#underline{
+    text-decoration: underline;
+}
+
+.cartList{
+    margin: 10px;
+    padding: 12px;
+    border: 1px solid;
+    display: none;
+}
+
+#extraInfo{
+    position: relative;
+    top: -350px;
+    left: 435px;
+}
+
+#extraInfo:hover{
+    border-radius: 15px;
+    background-color: #7373ff;
+}
+
+#checkEnd{
+     background-color: gainsboro;
+     padding: 5px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 0.9em;
+     position: relative;
+     bottom: 0;
+     right: 0;
+}
+
+#submitEnd{
+    background-color: #54be52;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: none;
+    margin-left: 10px;
+}
